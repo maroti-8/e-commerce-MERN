@@ -231,7 +231,7 @@ exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
 
 // Delete User -- Admin
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
-  const user = await user.findById(req.params.id);
+  const user = await User.findById(req.params.id);
 
   if (!user) {
     return next(
@@ -243,5 +243,6 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
+    message: "User Deleted Successfully",
   });
 });
